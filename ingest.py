@@ -150,6 +150,13 @@ def main():
         texts = process_documents([metadata['source'] for metadata in collection['metadatas']])
         print(f"Creating embeddings. May take some minutes...")
         db.add_documents(texts)
+    # if does_vectorstore_exist(persist_directory):
+    #     print(f"Resetting and emptying the vector database at {persist_directory}")
+    #     for root, dirs, files in os.walk(persist_directory):
+    #         for file in files:
+    #             os.remove(os.path.join(root, file))
+    #         for dir in dirs:
+    #             os.rmdir(os.path.join(root, dir))
     else:
         # Create and store locally vectorstore
         print("Creating new vectorstore")
